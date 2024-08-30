@@ -8,29 +8,27 @@
 
     <TextView
         android:id="@+id/Title"
-        android:layout_width="114dp"
-        android:layout_height="54dp"
+        android:layout_width="237dp"
+        android:layout_height="40dp"
         android:text="今天吃什么"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.241" />
+        app:layout_constraintVertical_bias="0.222" />
 
     <TextView
         android:id="@+id/WhatToEat"
-        android:layout_width="117dp"
-        android:layout_height="46dp"
+        android:layout_width="137dp"
+        android:layout_height="57dp"
         android:text="吃什么？"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.347" />
+        app:layout_constraintVertical_bias="0.335" />
 
     <Button
         android:id="@+id/WhatToEatButton"

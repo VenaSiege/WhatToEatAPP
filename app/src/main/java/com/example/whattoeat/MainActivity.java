@@ -18,7 +18,8 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
     
     private Button whatToEatButton;
-    
+
+    private TextView title;
     private TextView whatToEatText;
 //    private TextView easterEgg;
 
@@ -29,37 +30,53 @@ public class MainActivity extends AppCompatActivity {
     public Random random = new Random();
 
     public int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+    public int clickTime = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         whatToEatButton = findViewById(R.id.WhatToEatButton);
         whatToEatText = findViewById(R.id.WhatToEat);
-//        easterEgg = findViewById(R.id.easterEgg);
+        title = findViewById(R.id.Title);
 
         View.OnClickListener clickListener = new ButtonClickListener();
 
         whatToEatButton.setOnClickListener(clickListener);
-
 
     }
 
     private class ButtonClickListener implements View.OnClickListener {
         @Override
         public void onClick(final View v) {
-            int randomNumber = random.nextInt(whatToEatList.length);
-            whatToEatText.setText(whatToEatList[randomNumber]);
+            clickTime = clickTime + 1;
 
-//            if(dayOfWeek == 4) {
-//                String easterEggText = "KFC Crazy Thursday!V me 50 RMB!!";
-//                if(randomNumber == 4){
-//                    whatToEatText.setText(easterEggText);
-//                } else {
-//                    whatToEatText.setText(whatToEatList[randomNumber]);
-//                }
-//            } else {
-//                whatToEatText.setText(whatToEatList[randomNumber]);
-//            }
+            if(clickTime == 10) {
+                title.setText("还没想好？");
+            }
+            if(clickTime == 20) {
+                title.setText("你是真挑啊。");
+            }
+            if(clickTime == 30) {
+                title.setText("还选？莫不是来消遣洒家。");
+            }
+            if(clickTime == 100) {
+                title.setText("你小子别吃了");
+                whatToEatButton.setEnabled(false);
+            }
+
+            int randomNumber = random.nextInt(whatToEatList.length);
+//            whatToEatText.setText(whatToEatList[randomNumber]);
+
+            if(dayOfWeek == 5) {
+                String easterEggText = "KFC Crazy Thursday!V me 50 RMB!!";
+                if(randomNumber == 4){
+                    whatToEatText.setText(easterEggText);
+                } else {
+                    whatToEatText.setText(whatToEatList[randomNumber]);
+                }
+            } else {
+                whatToEatText.setText(whatToEatList[randomNumber]);
+            }
         }
     }
 }
